@@ -3,7 +3,7 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://steedware.github.io/portfolio/",
+  "homepage": "https://steedware.github.io/portfolio2/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
