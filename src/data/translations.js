@@ -125,28 +125,28 @@ export const translations = {
           title: 'AI-Based Dev Toolkit',
           description: 'Aplikacja Spring Boot integrująca się z OpenAI API do wspomagania codziennych zadań programistów. 5 narzędzi AI: przegląd kodu, generowanie testów, wiadomości commit, analiza bugów, przygotowanie do rozmów.',
           tech: ['Java 21', 'Spring Boot 3', 'OpenAI API', 'Bootstrap 5', 'JUnit 5', 'Swagger', 'Docker'],
-          image: '/portfolio2/assets/images/screen1.png',
+          image: '/portfolio/assets/images/screen1.png',
           github: 'https://github.com/steedware/DevToolkitAI'
         },
         {
           title: 'System Zarządzania Magazynem',
           description: 'Kompleksowy system zarządzania produktami, lokalizacjami i ruchami magazynowymi z REST API, dokumentacją Swagger/OpenAPI i eksportem raportów CSV.',
           tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Swagger', 'Docker Compose'],
-          image: '/portfolio2/assets/images/screen2.png',
+          image: '/portfolio/assets/images/screen2.png',
           github: 'https://github.com/steedware/WarehouseManager'
         },
         {
           title: 'RentACar - System Wypożyczania',
           description: 'System wypożyczania samochodów z funkcjami geolokalizacji i płatności online. Integracja z Stripe do przetwarzania płatności i OpenStreetMap do lokalizacji.',
           tech: ['Java 9+', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'PostGIS', 'Stripe'],
-          image: '/portfolio2/assets/images/screen3.png',
+          image: '/portfolio/assets/images/screen3.png',
           github: 'https://github.com/steedware/RentACarV1'
         },
         {
           title: 'Komunikator w Czasie Rzeczywistym',
           description: 'Aplikacja czatu z uwierzytelnianiem JWT i komunikacją WebSocket (STOMP). Prywatne wiadomości, historia konwersacji i oznaczanie jako przeczytane.',
           tech: ['Java 21', 'Spring Boot', 'WebSocket', 'Spring Security', 'JWT', 'H2'],
-          image: '/portfolio2/assets/images/screen4.png',
+          image: '/portfolio/assets/images/screen4.png',
           github: 'https://github.com/steedware/RealTimeChat'
         }
       ]
@@ -393,28 +393,28 @@ export const translations = {
           title: 'AI-Based Dev Toolkit',
           description: 'Spring Boot application integrating with OpenAI API to assist developers in daily tasks. 5 AI tools: code review, test generation, commit messages, bug analysis, interview preparation.',
           tech: ['Java 21', 'Spring Boot 3', 'OpenAI API', 'Bootstrap 5', 'JUnit 5', 'Swagger', 'Docker'],
-          image: '/portfolio2/assets/images/screen1.png',
+          image: '/portfolio/assets/images/screen1.png',
           github: 'https://github.com/steedware/DevToolkitAI'
         },
         {
           title: 'Warehouse Management System',
           description: 'Comprehensive system for managing products, locations and warehouse movements with REST API, Swagger/OpenAPI documentation and CSV report export.',
           tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Swagger', 'Docker Compose'],
-          image: '/portfolio2/assets/images/screen2.png',
+          image: '/portfolio/assets/images/screen2.png',
           github: 'https://github.com/steedware/WarehouseManager'
         },
         {
           title: 'RentACar - Rental System',
           description: 'Car rental system with geolocation features and online payments. Integration with Stripe for payment processing and OpenStreetMap for location services.',
           tech: ['Java 9+', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'PostGIS', 'Stripe'],
-          image: '/portfolio2/assets/images/screen3.png',
+          image: '/portfolio/assets/images/screen3.png',
           github: 'https://github.com/steedware/RentACarV1'
         },
         {
           title: 'Real-time Chat Application',
           description: 'Chat application with JWT authentication and WebSocket communication (STOMP). Private messages, conversation history and read receipts.',
           tech: ['Java 21', 'Spring Boot', 'WebSocket', 'Spring Security', 'JWT', 'H2'],
-          image: '/portfolio2/assets/images/screen4.png',
+          image: '/portfolio/assets/images/screen4.png',
           github: 'https://github.com/steedware/RealTimeChat'
         }
       ]
