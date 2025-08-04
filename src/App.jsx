@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { LanguageProvider } from './hooks/useLanguage.jsx';
 import LoadingScreen from './components/LoadingScreen';
 import Header from './components/Header';

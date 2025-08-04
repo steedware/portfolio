@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage.jsx';
 
@@ -7,6 +8,13 @@ const Hero = () => {
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToAbout = () => {
+    const element = document.getElementById('about');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -84,18 +92,17 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
               variants={itemVariants}
             >
-              <motion.a
-                href="/assets/CV_Szymon_Trojan.pdf"
-                download
+              <motion.button
+                onClick={scrollToAbout}
                 className="btn-primary inline-flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-                {t('hero.downloadCV')}
-              </motion.a>
+                {t('hero.getToKnowMe')}
+              </motion.button>
 
               <motion.button
                 onClick={scrollToContact}
@@ -131,7 +138,7 @@ const Hero = () => {
                 transition={{ duration: 0.3 }}
               >
                 <img 
-                  src="./assets/images/profile-photo.jpg" 
+                  src="/assets/images/profile-photo.jpg" 
                   alt="Szymon Trojan"
                   className="w-full h-full object-cover"
                   onError={(e) => {

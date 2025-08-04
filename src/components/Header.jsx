@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage.jsx';
 
@@ -52,7 +52,7 @@ const Header = () => {
           >
             <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold overflow-hidden">
               <img 
-                src="./assets/images/logo.jpg" 
+                src="/assets/images/logo.jpg" 
                 alt="Szymon Trojan Logo"
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -90,7 +90,7 @@ const Header = () => {
                 <motion.div
                   className="absolute top-1 bottom-1 w-8 rounded-full bg-gray-800 transition-all duration-300"
                   animate={{
-                    x: language === 'pl' ? 2 : 30
+                    x: language === 'pl' ? 2 : 36
                   }}
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />

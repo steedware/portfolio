@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage.jsx';
 
@@ -65,7 +66,7 @@ const Footer = () => {
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-900 font-bold overflow-hidden">
                     <img 
-                      src="./assets/images/logo.jpg" 
+                      src="/assets/images/logo.jpg" 
                       alt="Szymon Trojan Logo"
                       className="w-full h-full object-cover"
                       onError={(e) => {

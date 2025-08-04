@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage.jsx';
 
@@ -146,8 +146,7 @@ const Projects = () => {
                         className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
                         onClick={(e) => {
                           e.stopPropagation();
-                          // Placeholder for GitHub link
-                          window.open('#', '_blank');
+                          window.open(project.github, '_blank');
                         }}
                       >
                         {t('projects.viewCode')}
@@ -215,7 +214,7 @@ const Projects = () => {
 
                   {/* Description */}
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Project Overview</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('projects.projectOverview')}</h4>
                     <p className="text-gray-700 leading-relaxed">
                       {selectedProject.description}
                     </p>
@@ -223,7 +222,7 @@ const Projects = () => {
 
                   {/* Tech Stack */}
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Technologies Used</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('projects.technologiesUsed')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.tech.map((tech, index) => (
                         <span
@@ -239,22 +238,9 @@ const Projects = () => {
                   {/* Action Buttons */}
                   <div className="flex gap-4">
                     <button
-                      className="btn-primary"
-                      onClick={() => {
-                        // Placeholder for live demo
-                        window.open('#', '_blank');
-                      }}
-                    >
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                      Live Demo
-                    </button>
-                    <button
                       className="btn-secondary"
                       onClick={() => {
-                        // Placeholder for GitHub link
-                        window.open('#', '_blank');
+                        window.open(selectedProject.github, '_blank');
                       }}
                     >
                       <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">

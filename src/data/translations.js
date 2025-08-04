@@ -10,13 +10,20 @@ export const translations = {
       education: 'Wykształcenie',
       contact: 'Kontakt',
     },
-    // Hero Section
+      about: {
+      title: 'About Me',
+      subtitle: 'Get to know me better',
+      description: 'I am a beginner programmer with experience in creating backend applications. I specialize in Java and Spring Boot, and also have skills in databases and REST API.',
+      yearsExperience: '6+ months',
+      experienceLabel: 'Months of experience',
+    },
     hero: {
       greeting: 'Cześć, jestem',
       name: 'Szymon Trojan',
       title: 'Junior Java Developer',
       description: 'Junior Java Developer z 6-miesięcznym doświadczeniem komercyjnym w rozwoju aplikacji web oraz zarządzaniu bazami danych. Specjalizacja w technologiach Java/Spring Boot, REST API oraz pracy z bazami danych PostgreSQL i MySQL.',
       downloadCV: 'Pobierz CV',
+      getToKnowMe: 'Poznaj mnie',
       contactMe: 'Skontaktuj się',
       location: 'Porąbka, Polska',
       scrollDown: 'Przewiń w dół',
@@ -25,7 +32,7 @@ export const translations = {
     about: {
       title: 'O mnie',
       subtitle: 'Poznaj mnie bliżej',
-      description: 'Jestem pasjonatem programowania z doświadczeniem w tworzeniu aplikacji backendowych. Specjalizuję się w Java i Spring Boot, a także posiadam umiejętności w zakresie baz danych i REST API.',
+      description: 'Jestem początkującym programistą z doświadczeniem w tworzeniu aplikacji backendowych. Specjalizuję się w Java i Spring Boot, a także posiadam umiejętności w zakresie baz danych i REST API.',
       yearsExperience: '6+ miesięcy',
       experienceLabel: 'Miesięcy doświadczenia',
       stats: {
@@ -111,30 +118,36 @@ export const translations = {
       subtitle: 'Moje najlepsze prace',
       viewProject: 'Zobacz projekt',
       viewCode: 'Zobacz kod',
+      projectOverview: 'Przegląd projektu',
+      technologiesUsed: 'Użyte technologie',
       projects: [
         {
           title: 'AI-Based Dev Toolkit',
           description: 'Aplikacja Spring Boot integrująca się z OpenAI API do wspomagania codziennych zadań programistów. 5 narzędzi AI: przegląd kodu, generowanie testów, wiadomości commit, analiza bugów, przygotowanie do rozmów.',
           tech: ['Java 21', 'Spring Boot 3', 'OpenAI API', 'Bootstrap 5', 'JUnit 5', 'Swagger', 'Docker'],
-          image: '/assets/images/project1.jpg'
+          image: '/assets/images/screen1.png',
+          github: 'https://github.com/steedware/DevToolkitAI'
         },
         {
           title: 'System Zarządzania Magazynem',
           description: 'Kompleksowy system zarządzania produktami, lokalizacjami i ruchami magazynowymi z REST API, dokumentacją Swagger/OpenAPI i eksportem raportów CSV.',
           tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Swagger', 'Docker Compose'],
-          image: '/assets/images/project2.jpg'
+          image: '/assets/images/screen2.png',
+          github: 'https://github.com/steedware/WarehouseManager'
         },
         {
           title: 'RentACar - System Wypożyczania',
           description: 'System wypożyczania samochodów z funkcjami geolokalizacji i płatności online. Integracja z Stripe do przetwarzania płatności i OpenStreetMap do lokalizacji.',
           tech: ['Java 9+', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'PostGIS', 'Stripe'],
-          image: '/assets/images/project3.jpg'
+          image: '/assets/images/screen3.png',
+          github: 'https://github.com/steedware/RentACarV1'
         },
         {
           title: 'Komunikator w Czasie Rzeczywistym',
           description: 'Aplikacja czatu z uwierzytelnianiem JWT i komunikacją WebSocket (STOMP). Prywatne wiadomości, historia konwersacji i oznaczanie jako przeczytane.',
           tech: ['Java 21', 'Spring Boot', 'WebSocket', 'Spring Security', 'JWT', 'H2'],
-          image: '/assets/images/project4.jpg'
+          image: '/assets/images/screen4.png',
+          github: 'https://github.com/steedware/RealTimeChat'
         }
       ]
     },
@@ -278,6 +291,7 @@ export const translations = {
       title: 'Junior Java Developer',
       description: 'Junior Java Developer with 6 months of hands-on experience in Spring Boot application development and database management. Specialized in backend development using Spring Framework, REST APIs, and database technologies like PostgreSQL and MySQL.',
       downloadCV: 'Download CV',
+      getToKnowMe: 'Get to know me',
       contactMe: 'Contact Me',
       location: 'Porąbka, Poland',
       scrollDown: 'Scroll down',
@@ -286,7 +300,7 @@ export const translations = {
     about: {
       title: 'About Me',
       subtitle: 'Get to know me',
-      description: 'I am a passionate programmer with experience in creating backend applications. I specialize in Java and Spring Boot, and also have skills in databases and REST APIs.',
+      description: 'I am a beginner programmer with experience in creating backend applications. I specialize in Java and Spring Boot, and also have skills in databases and REST APIs.',
       yearsExperience: '6+ months',
       experienceLabel: 'Months of experience',
       stats: {
@@ -372,30 +386,36 @@ export const translations = {
       subtitle: 'My best work',
       viewProject: 'View Project',
       viewCode: 'View Code',
+      projectOverview: 'Project Overview',
+      technologiesUsed: 'Technologies Used',
       projects: [
         {
           title: 'AI-Based Dev Toolkit',
           description: 'Spring Boot application integrating with OpenAI API to assist developers in daily tasks. 5 AI tools: code review, test generation, commit messages, bug analysis, interview preparation.',
           tech: ['Java 21', 'Spring Boot 3', 'OpenAI API', 'Bootstrap 5', 'JUnit 5', 'Swagger', 'Docker'],
-          image: '/assets/images/project1.jpg'
+          image: '/assets/images/screen1.png',
+          github: 'https://github.com/steedware/DevToolkitAI'
         },
         {
           title: 'Warehouse Management System',
           description: 'Comprehensive system for managing products, locations and warehouse movements with REST API, Swagger/OpenAPI documentation and CSV report export.',
           tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Swagger', 'Docker Compose'],
-          image: '/assets/images/project2.jpg'
+          image: '/assets/images/screen2.png',
+          github: 'https://github.com/steedware/WarehouseManager'
         },
         {
           title: 'RentACar - Rental System',
           description: 'Car rental system with geolocation features and online payments. Integration with Stripe for payment processing and OpenStreetMap for location services.',
           tech: ['Java 9+', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'PostGIS', 'Stripe'],
-          image: '/assets/images/project3.jpg'
+          image: '/assets/images/screen3.png',
+          github: 'https://github.com/steedware/RentACarV1'
         },
         {
           title: 'Real-time Chat Application',
           description: 'Chat application with JWT authentication and WebSocket communication (STOMP). Private messages, conversation history and read receipts.',
           tech: ['Java 21', 'Spring Boot', 'WebSocket', 'Spring Security', 'JWT', 'H2'],
-          image: '/assets/images/project4.jpg'
+          image: '/assets/images/screen4.png',
+          github: 'https://github.com/steedware/RealTimeChat'
         }
       ]
     },

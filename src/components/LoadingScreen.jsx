@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const LoadingScreen = ({ onLoadingComplete }) => {
@@ -45,7 +45,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             {/* Logo */}
             <div className="w-full h-full bg-gray-700 rounded-full flex items-center justify-center text-white font-bold text-2xl overflow-hidden">
               <img 
-                src="./assets/images/logo.jpg" 
+                src="/assets/images/logo.jpg" 
                 alt="Szymon Trojan Logo"
                 className="w-full h-full object-cover"
                 onError={(e) => {
