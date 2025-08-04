@@ -138,7 +138,7 @@ const Hero = () => {
                 transition={{ duration: 0.3 }}
               >
                 <img 
-                  src="/assets/images/profile-photo.jpg" 
+                  src="/portfolio2/assets/images/profile-photo.jpg" 
                   alt="Szymon Trojan"
                   className="w-full h-full object-cover"
                   onError={(e) => {

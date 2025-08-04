@@ -52,7 +52,7 @@ const Header = () => {
           >
             <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-white font-bold overflow-hidden">
               <img 
-                src="/assets/images/logo.jpg" 
+                src="/portfolio2/assets/images/logo.jpg" 
                 alt="Szymon Trojan Logo"
                 className="w-full h-full object-cover"
                 onError={(e) => {
