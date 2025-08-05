@@ -259,7 +259,7 @@ export const translations = {
       cta: {
         title: 'Współpracujmy razem!',
         description: 'Zawsze jestem zainteresowany nowymi możliwościami i ekscytującymi projektami. Skontaktuj się ze mną, jeśli chcesz omówić potencjalną współpracę.',
-        sendEmail: 'Wyślij E-mail',
+        viewProjects: 'Zobacz moje projekty',
         linkedin: 'LinkedIn'
       },
       workTogether: {
@@ -531,7 +531,7 @@ export const translations = {
       cta: {
         title: "Let's work together!",
         description: "I'm always interested in new opportunities and exciting projects. Feel free to reach out if you'd like to discuss potential collaborations.",
-        sendEmail: 'Send Email',
+        viewProjects: 'View my projects',
         linkedin: 'LinkedIn'
       },
       workTogether: {

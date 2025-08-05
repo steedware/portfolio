@@ -241,25 +241,9 @@ const Contact = () => {
               {/* Additional CTA */}
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 text-white">
                 <h3 className="text-xl font-bold mb-4">{t('contact.cta.title')}</h3>
-                <p className="text-gray-300 mb-6">
+                <p className="text-gray-300">
                   {t('contact.cta.description')}
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href={`mailto:${t('contact.info.email')}`}
-                    className="btn-secondary bg-white text-gray-900 hover:bg-gray-100"
-                  >
-                    {t('contact.cta.sendEmail')}
-                  </a>
-                  <a
-                    href={`https://${t('contact.info.linkedin')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary border-white text-white hover:bg-white hover:text-gray-900"
-                  >
-                    {t('contact.cta.linkedin')}
-                  </a>
-                </div>
               </div>
             </motion.div>
           </div>
