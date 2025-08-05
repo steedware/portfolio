@@ -241,6 +241,10 @@ export const translations = {
         subjectRequired: 'Temat jest wymagany',
         messageRequired: 'Wiadomość jest wymagana'
       },
+      sendButton: 'Wyślij wiadomość', 
+      sending: 'Wysyłanie...',
+      successMessage: 'Wiadomość wysłana pomyślnie! Dziękuję za kontakt.',
+      errorMessage: 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.',
       info: {
         email: 'szymon.343@wp.pl',
         phone: '+48 536 494 241',
@@ -509,6 +513,10 @@ export const translations = {
         subjectRequired: 'Subject is required',
         messageRequired: 'Message is required'
       },
+      sendButton: 'Send Message',
+      sending: 'Sending...',
+      successMessage: 'Message sent successfully! Thank you for reaching out.',
+      errorMessage: 'An error occurred while sending the message. Please try again later.',
       info: {
         email: 'szymon.343@wp.pl',
         phone: '+48 536 494 241',

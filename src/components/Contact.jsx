@@ -1,39 +1,37 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
 import { useLanguage } from '../hooks/useLanguage.jsx';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useLanguage();
+  const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset
-  } = useForm();
-
-  const onSubmit = async (data) => {
+  const sendEmail = (e) => {
+    e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
-      // Simulate form submission - replace with actual form handling
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // For now, just log the data and show success
-      console.log('Form submitted:', data);
-      setSubmitStatus('success');
-      reset();
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
 
-    // Clear status after 5 seconds
-    setTimeout(() => setSubmitStatus(null), 5000);
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      form.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then((result) => {
+        console.log('SUCCESS!', result.text);
+        setSubmitStatus('success');
+        e.target.reset();
+    }, (error) => {
+        console.log('FAILED...', error.text);
+        setSubmitStatus('error');
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+      // Clear status after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    });
   };
 
   const containerVariants = {
@@ -134,68 +132,35 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <motion.div className="bg-white rounded-2xl shadow-lg p-8" variants={itemVariants}>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form ref={form} onSubmit={sendEmail} className="space-y-6">
                 {/* Name Field */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="from_name" className="block text-sm font-medium text-gray-700 mb-2">
                     {t('contact.form.name')}
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    {...register('name', { required: t('contact.form.nameRequired') })}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors ${
-                      errors.name ? 'border-red-500' : 'border-gray-300'
-                    }`}
+                    id="from_name"
+                    name="from_name"
+                    required
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors border-gray-300"
                     placeholder={t('contact.form.namePlaceholder')}
                   />
-                  {errors.name && (
-                    <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
-                  )}
                 </div>
 
                 {/* Email Field */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="from_email" className="block text-sm font-medium text-gray-700 mb-2">
                     {t('contact.form.email')}
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    {...register('email', {
-                      required: t('contact.form.emailRequired'),
-                      pattern: {
-                        value: /^\S+@\S+$/i,
-                        message: t('contact.form.emailInvalid')
-                      }
-                    })}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
-                    }`}
+                    id="from_email"
+                    name="from_email"
+                    required
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors border-gray-300"
                     placeholder={t('contact.form.emailPlaceholder')}
                   />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-                  )}
-                </div>
-
-                {/* Subject Field */}
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('contact.form.subject')}
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    {...register('subject', { required: t('contact.form.subjectRequired') })}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors ${
-                      errors.subject ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    placeholder={t('contact.form.subjectPlaceholder')}
-                  />
-                  {errors.subject && (
-                    <p className="mt-1 text-sm text-red-600">{errors.subject.message}</p>
-                  )}
                 </div>
 
                 {/* Message Field */}
@@ -205,101 +170,61 @@ const Contact = () => {
                   </label>
                   <textarea
                     id="message"
-                    rows={5}
-                    {...register('message', { required: t('contact.form.messageRequired') })}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors resize-none ${
-                      errors.message ? 'border-red-500' : 'border-gray-300'
-                    }`}
+                    name="message"
+                    rows="4"
+                    required
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-colors border-gray-300"
                     placeholder={t('contact.form.messagePlaceholder')}
-                  />
-                  {errors.message && (
-                    <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
-                  )}
+                  ></textarea>
                 </div>
 
                 {/* Submit Button */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full btn-primary ${
-                    isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
-                  }`}
-                  whileHover={!isSubmitting ? { scale: 1.02 } : {}}
-                  whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center justify-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      {t('contact.form.sending')}
-                    </div>
-                  ) : (
-                    t('contact.form.send')
-                  )}
-                </motion.button>
-
-                {/* Status Messages */}
-                {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-50 border border-green-200 rounded-lg"
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary w-full sm:w-auto"
                   >
-                    <div className="flex items-center">
-                      <svg className="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-green-800">{t('contact.form.success')}</span>
-                    </div>
-                  </motion.div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-red-50 border border-red-200 rounded-lg"
-                  >
-                    <div className="flex items-center">
-                      <svg className="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span className="text-red-800">{t('contact.form.error')}</span>
-                    </div>
-                  </motion.div>
-                )}
+                    {isSubmitting ? t('contact.sending') : t('contact.sendButton')}
+                  </button>
+                </div>
               </form>
+
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <p className="mt-4 text-center text-green-600 bg-green-100 p-3 rounded-lg">
+                  {t('contact.successMessage')}
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="mt-4 text-center text-red-600 bg-red-100 p-3 rounded-lg">
+                  {t('contact.errorMessage')}
+                </p>
+              )}
             </motion.div>
 
-            {/* Contact Information */}
+            {/* Contact Info */}
             <motion.div className="space-y-8" variants={itemVariants}>
-              {/* Contact Info Cards */}
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow"
-                    whileHover={{ y: -2 }}
-                  >
+                  <motion.div key={index} variants={itemVariants}>
                     {info.href ? (
                       <a
                         href={info.href}
-                        target={info.href.startsWith('http') ? '_blank' : undefined}
-                        rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="flex items-center group"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center p-4 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
                       >
-                        <div className="p-3 bg-gray-100 rounded-lg group-hover:bg-gray-800 group-hover:text-white transition-colors mr-4">
+                        <div className="p-3 bg-gray-100 rounded-lg mr-4">
                           {info.icon}
                         </div>
                         <div>
-                          <p className="text-sm text-gray-500 group-hover:text-gray-600">{info.label}</p>
-                          <p className="text-gray-900 font-medium group-hover:text-gray-700">{info.value}</p>
+                          <p className="text-sm text-gray-500">{info.label}</p>
+                          <p className="text-gray-900 font-medium">{info.value}</p>
                         </div>
                       </a>
                     ) : (
-                      <div className="flex items-center">
+                      <div className="flex items-center p-4 bg-white rounded-2xl shadow-md">
                         <div className="p-3 bg-gray-100 rounded-lg mr-4">
                           {info.icon}
                         </div>
